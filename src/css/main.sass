@@ -1,0 +1,240 @@
+@import '_myinputrange.sass'
+
+$font-dark: #000000
+$font-main: #7a7677
+$font-light: #2c97d4
+$header-background: #2d97d4
+$card-background: #fbfbfb
+$main-background: #ffffff
+
+@mixin for-phone-only
+    @media (max-width: 900px)
+        @content
+
+@mixin for-phone-landscape
+    @media (min-width: 400px) 
+        @content
+
+@mixin for-tablet
+    @media (min-width: 600px) 
+        @content
+
+@mixin for-tablet-landscape
+    @media (min-width: 8000px) 
+        @content
+
+@mixin for-desktop
+    @media (min-width: 1150px) 
+        @content
+
+@mixin for-big-desktop
+    @media (min-width: 1550px)
+        @content
+
+* 
+    padding: 0
+    margin: 0
+    font-family: 'Droid Sans', sans-serif
+h1,
+h2,
+h3
+    color: $font-dark
+p    
+    color: $font-main
+    font-size: 1em
+header
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    align-items: center
+    .header_top
+        background-color: $header-background
+        width: 100%
+        height: 100px
+
+        z-index: 1
+
+        *
+            color: $main-background
+        .menu
+            position: relative
+            .menu__el
+                text-transform: uppercase
+                font-weight: bold
+
+                display: none
+                &.active
+                    display: block
+
+                margin: 20px
+
+                i
+                    background-color: $main-background
+                    color: $font-light
+
+                    margin: 10px
+
+    .header_avatar
+        width: 120px
+        height: 120px
+        
+        border-radius: 50%
+        border: 5px solid $header-background
+
+        background-image: url('../assets/avatar.jpg')
+        background-color: $main-background
+        background-size: cover
+
+        transform: translateY(-60px)
+
+        z-index: 5
+        overflow: hidden
+        img
+            height: 150px
+            width: 120px
+            border-radius: 50%
+    .header_bot
+        text-align: center
+
+        transform: translateY(-40px)
+
+        margin-bottom: 30px
+.main
+    width: 80%
+    margin: 0 auto
+
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    .main__col:first-child
+        flex: 1
+
+    .main__el
+        background-color: $card-background
+        
+        border-bottom: 1px solid lightgray
+
+        padding: 25px
+        margin: 25px
+
+        position: relative
+
+        h3
+            margin-bottom: 15px 
+        .el__icon
+            position: absolute
+            top: 10px
+            right: 10px          
+            border-radius: 50%
+        li
+            list-style: none
+            margin-top: 15px
+            i
+                margin-right: 15px
+        ul.el__contacts
+            li
+                display: flex
+                align-items: center
+        ul.el__skills
+            li
+                display: flex
+                align-items: center
+                
+                .skill__icon
+                    width: 10%
+                    margin-right: 15px
+                        
+                .skill__info
+                    width: 90%
+                    input[type="range"]
+                        width: 90%
+        ul.el__languages
+            display: flex
+            justify-content: space-around
+            li
+                display: flex
+                flex-direction: column
+                align-items: center
+                flex: 1
+                margin-right: 15px
+                margin-left: 15px
+                .flag
+                    flex: 1
+                    background-size: cover
+                    img
+                        height: 100px
+                .language
+                    .language__name
+                        width: 100%
+                        margin-top: 10px
+                        margin-bottom: 10px
+                        text-align: center
+                    .language__level
+                        align-items: center
+
+                        width: 100%
+                        display: flex
+                        justify-content: space-around
+                        i
+                            flex: 1
+                            &.golden
+                                color: gold
+    .main__cols
+        flex: 3
+
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+
+        .main__col
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            flex: 3
+
+            &:last-child
+                flex: 2
+                justify-content: flex-start
+                
+i.fa:not(.fa-star)
+    width: 40px
+    height: 40px
+    line-height: 40px
+
+    font-size: 20px
+    text-align: center
+    border-radius: 50%
+
+
+    background-color: $header-background
+    color: $main-background
+
+@include for-phone-only
+    p
+        font-size: .8em
+
+    .main
+        width: 90%
+        .main__el
+            flex: 1
+            ul.el__skills
+                li
+                    display: flex
+                    align-items: center
+                    
+                    .skill__icon
+                        width: 10%
+                        margin-right: 35px
+                            
+                    .skill__info
+                        width: 80%
+                        input[type="range"]
+                            width: 90%
+            ul.el__languages
+                flex-direction: column
+                
+        .main__cols
+            flex-direction: column
+
+        

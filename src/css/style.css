@@ -1,0 +1,10 @@
+:root {
+    --font-main: #7a7677;
+    --font-light: #2c97d4;
+    --card-background: #fbfbfb;
+    --main-background: #ffffff;
+}
+
+header {
+    background-color: #2d97d4;
+}
