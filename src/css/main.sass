@@ -4,14 +4,14 @@ $font-dark: #000000
 $font-main: #7a7677
 $font-light: #2c97d4
 $header-background: #2d97d4
-$card-background: #fbfbfb
+$card-background: #f7f7f7
 $main-background: #ffffff
 
 @mixin for-phone-only
     @media (max-width: 900px)
         @content
 
-@mixin for-phone-landscape
+@mixin for-phone-up
     @media (min-width: 400px) 
         @content
 
@@ -19,16 +19,12 @@ $main-background: #ffffff
     @media (min-width: 600px) 
         @content
 
-@mixin for-tablet-landscape
-    @media (min-width: 8000px) 
-        @content
-
 @mixin for-desktop
-    @media (min-width: 1150px) 
+    @media (min-width: 1000px) 
         @content
 
 @mixin for-big-desktop
-    @media (min-width: 1550px)
+    @media (min-width: 1200px)
         @content
 
 * 
@@ -42,6 +38,7 @@ h3
 p    
     color: $font-main
     font-size: 1em
+
 header
     display: flex
     flex-flow: column nowrap
@@ -180,6 +177,19 @@ header
                             flex: 1
                             &.golden
                                 color: gold
+        ul.el__exp
+            li
+                a:link,
+                a:active,
+                a:visited
+                    color: $font-light
+                a:hover
+                    color: $header-background
+                h4
+                    margin-bottom: 10px
+                    font-size: 1em                    
+                p
+                    font-size: .9em
     .main__cols
         flex: 3
 
@@ -191,10 +201,7 @@ header
             display: flex
             flex-direction: column
             justify-content: space-between
-            flex: 3
-
             &:last-child
-                flex: 2
                 justify-content: flex-start
                 
 i.fa:not(.fa-star)
@@ -236,5 +243,17 @@ i.fa:not(.fa-star)
                 
         .main__cols
             flex-direction: column
-
-        
+@include for-phone-up
+    .main
+        .main__cols
+            .main__col
+                flex: 1
+                &:last-child
+                    flex: 2
+@include for-desktop
+    .main
+        .main__cols
+            .main__col
+                flex: 3
+                &:last-child
+                    flex: 2
