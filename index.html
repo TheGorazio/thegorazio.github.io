@@ -10,19 +10,37 @@
     <body>
         <header>
             <div class="header_top">
-                <div class="menu">
+                <div class="logo">
                     <ul>
-                        <li class="menu__el active">
+                        <li class="logo__el active">
+                            <i class="fa fa-home" aria-hidden="true"></i>Home
+                        </li>
+                        <li class="logo__el">
+                            <i class="fa fa-book" aria-hidden="true"></i>Portfolio
+                        </li>
+                        <li class="logo__el">
+                            <i class="fa fa-book" aria-hidden="true"></i>Letter                   
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu hide">
+                    <ul>
+                        <li class="menu__el trigger">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </li>
+                        <li class="menu__el">
                             <i class="fa fa-home" aria-hidden="true"></i>Home
                         </li>
                         <li class="menu__el">
                             <i class="fa fa-book" aria-hidden="true"></i>Portfolio
                         </li>
                         <li class="menu__el">
-                            <i class="fa fa-letter" aria-hidden="true"></i>Letter                   
+                            <i class="fa fa-envelope" aria-hidden="true"></i>Letter                   
                         </li>
                     </ul>
                 </div>
+                
+
             </div>
             <div class="header_avatar">
                 <img src="./src/assets/avatar.jpg" alt="avatar">
@@ -182,7 +200,7 @@
                         <h3>Work experience</h3>
                         <ul class="el__exp">
                             <li>
-                                <h4><a href="/selflab">Self lab cms</a></h4>
+                                <h4><a href="/selflab">Selflab cms</a></h4>
                                 <p>
                                     Develop CMS system based on node.js (backend) + react.js (frontend) for studio
                                     <br>
@@ -214,9 +232,36 @@
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>                
                         </div>
                         <h3>Education</h3>
-                        <div class="el__education">
-                            <p>MIEM HSE</p>
-                        </div>
+                        <ul class="el__education">
+                            <li>
+                                School
+                                <p>
+                                    Middle School #36, Vladimir, 2002 - 2013
+                                    <br>
+                                    <small>Student</small>
+                                </p>
+                            </li>
+                            <li>
+                                University
+                                <p>
+                                    MIEM HSE, Moscow, 2013 - 2017
+                                    <br>
+                                    <small>Computer engineering department bachelor</small>
+                                </p>
+                            </li>
+                            <li>
+                                Courses:
+                                <ul class="courses">
+                                    <li>
+                                        <p>
+                                            IBM IoT course (<a href="https://ru.coursera.org/">Coursera</a>)
+                                            <br>
+                                            <a href="https://www.coursera.org/account/accomplishments/certificate/2VBE89MB2JLT">Certificate</a>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
