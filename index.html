@@ -7,35 +7,46 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
         <link rel="stylesheet" href="./src/css/font-awesome/css/font-awesome.min.css"> 
     </head>
-    <body>
+    <body @resize>
+        <div id="app">
         <header>
             <div class="header_top">
                 <div class="logo">
                     <ul>
                         <li class="logo__el active">
-                            <i class="fa fa-home" aria-hidden="true"></i>Home
+                            <i class="fa fa-home" aria-hidden="true"></i>{{ content.header[0] }}
                         </li>
                         <li class="logo__el">
-                            <i class="fa fa-book" aria-hidden="true"></i>Portfolio
+                            <i class="fa fa-book" aria-hidden="true"></i>{{ content.header[1] }}
                         </li>
                         <li class="logo__el">
-                            <i class="fa fa-book" aria-hidden="true"></i>Letter                   
+                            <i class="fa fa-book" aria-hidden="true"></i>{{ content.header[2] }}    
                         </li>
                     </ul>
                 </div>
-                <div class="menu hide">
+                <div class="lang-select">
+                    <div class="english" :class="{ selected: this.language === 'English' }" @click="changeLanguageToEnglish()">
+                        <img src="./src/assets/United_Kingdom.png" alt="English">
+                    </div>
+                    <div class="russian" :class="{ selected: this.language === 'Russian' }" @click="changeLanguageToRussian()">
+                        <img src="./src/assets/Russia.png" alt="Russian">
+                    </div>
+                </div>
+                <div class="menu" :class="{ hide: !this.menuOn, show: this.menuOn }">
                     <ul>
-                        <li class="menu__el trigger">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        <li class="menu__el trigger" @click="showMenu()">
+                            <i v-if="this.menuOn === true"class="fa fa-times" aria-hidden="true"></i>
+                            <i v-else class="fa fa-bars" aria-hidden="true"></i>
+                            
                         </li>
                         <li class="menu__el">
-                            <i class="fa fa-home" aria-hidden="true"></i>Home
+                            <i class="fa fa-home" aria-hidden="true"></i>{{ content.menu[0] }} 
                         </li>
                         <li class="menu__el">
-                            <i class="fa fa-book" aria-hidden="true"></i>Portfolio
+                            <i class="fa fa-book" aria-hidden="true"></i>{{ content.menu[1] }} 
                         </li>
                         <li class="menu__el">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>Letter                   
+                            <i class="fa fa-envelope" aria-hidden="true"></i>{{ content.menu[2] }}   
                         </li>
                     </ul>
                 </div>
@@ -46,8 +57,8 @@
                 <img src="./src/assets/avatar.jpg" alt="avatar">
             </div>
             <div class="header_bot">
-                <h1>Gleb Scherbakov</h1>
-                <h2>Junior web developer</h2>
+                <h1>{{ content.name[0] }}</h1>
+                <h2>{{ content.name[1] }}</h2>
             </div>
         </header>
         <div class="main">
@@ -55,9 +66,9 @@
                 <div class="el__icon">
                     <i class="fa fa-user" aria-hidden="true"></i>                    
                 </div>
-                <h3>Hello, i am Gleb</h3>
+                <h3>{{ content.greeting[0] }}</h3>
                 <p>
-                    Я студент МИЭМ НИУ ВШЭ. Увлекаюсь веб - разработкой, в частности frontend'ом. 
+                    {{ content.greeting[1] }}
                 </p>
             </div>
             <div class="main__cols">
@@ -66,16 +77,16 @@
                         <div class="el__icon">
                             <i class="fa fa-address-book-o" aria-hidden="true"></i>                    
                         </div>  
-                        <h3>Contact me</h3>
+                        <h3>{{ content.contacts[0] }}</h3>
                         <ul class="el__contacts">
                             <li>
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <div>
                                     <p>
-                                        Moscow
+                                        {{ content.contacts[1] }}
                                     </p>
                                     <p>
-                                        City
+                                        {{ content.contacts[2] }}
                                     </p>
                                 </div>
                             </li>
@@ -83,10 +94,10 @@
                                 <i class="fa fa-globe" aria-hidden="true"></i>
                                 <div>
                                     <p>
-                                        thegorazio.github.io
+                                        {{ content.contacts[3] }}
                                     </p>
                                     <p>
-                                        thegorazio@gmail.com
+                                        {{ content.contacts[4] }}
                                     </p>
                                 </div>                           
                             </li>
@@ -104,15 +115,15 @@
                         <div class="el__icon">
                             <i class="fa fa-laptop" aria-hidden="true"></i>                    
                         </div> 
-                        <h3>My skills</h3>
+                        <h3>{{ content.skills[0] }}</h3>
                         <ul class="el__skills">
                             <li>
                                 <div class="skill__icon">
                                     <i class="fa" aria-hidden="true"></i>
                                 </div>
                                 <div class="skill__info">
-                                    <p>skill 1</p>
-                                    <input type="range" min="0" max="100" step="1" value="89">
+                                    <p>{{ content.skills[1] }}</p>
+                                    <input type="range" min="0" max="100" step="1" value="71">
                                 </div>
                             </li>
                             <li>
@@ -120,7 +131,16 @@
                                     <i class="fa" aria-hidden="true"></i>
                                 </div>
                                 <div class="skill__info">
-                                    <p>skill 2</p>
+                                    <p>{{ content.skills[2] }}</p>
+                                    <input type="range" min="0" max="100" step="1" value="78">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill__icon">
+                                    <i class="fa" aria-hidden="true"></i>
+                                </div>
+                                <div class="skill__info">
+                                    <p>{{ content.skills[3] }}</p>
                                     <input type="range" min="0" max="100" step="1" value="65">
                                 </div>
                             </li>
@@ -129,8 +149,8 @@
                                     <i class="fa" aria-hidden="true"></i>
                                 </div>
                                 <div class="skill__info">
-                                    <p>skill 3</p>
-                                    <input type="range" min="0" max="100" step="1" value="49">
+                                    <p>{{ content.skills[4] }}</p>
+                                    <input type="range" min="0" max="100" step="1" value="33">
                                 </div>
                             </li>
                             <li>
@@ -138,16 +158,7 @@
                                     <i class="fa" aria-hidden="true"></i>
                                 </div>
                                 <div class="skill__info">
-                                    <p>skill 4</p>
-                                    <input type="range" min="0" max="100" step="1" value="77">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="skill__icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                                <div class="skill__info">
-                                    <p>skill 5</p>
+                                    <p>{{ content.skills[5] }}</p>
                                     <input type="range" min="0" max="100" step="1" value="69">
                                 </div>
                             </li>
@@ -157,14 +168,14 @@
                         <div class="el__icon">
                             <i class="fa fa-globe" aria-hidden="true"></i>                
                         </div>
-                        <h3>Languages</h3>
+                        <h3>{{ content.languages[0] }}</h3>
                         <ul class="el__languages">
                             <li>
                                 <div class="flag russian">
                                     <img src="./src/assets/Russia.png" alt="Russian">                                    
                                 </div>
                                 <div class="language">
-                                    <div class="language__name">Russian</div>
+                                    <div class="language__name">{{ content.languages[1] }}</div>
                                     <div class="language__level">
                                         <i class="fa fa-star golden" aria-hidden="true"></i>
                                         <i class="fa fa-star golden" aria-hidden="true"></i>
@@ -179,7 +190,7 @@
                                     <img src="./src/assets/United_Kingdom.png" alt="English">
                                 </div>
                                 <div class="language">
-                                    <div class="language__name">English</div>
+                                    <div class="language__name">{{ content.languages[2] }}</div>
                                     <div class="language__level">
                                         <i class="fa fa-star golden" aria-hidden="true"></i>
                                         <i class="fa fa-star golden" aria-hidden="true"></i>
@@ -197,32 +208,32 @@
                         <div class="el__icon">
                             <i class="fa fa-suitcase" aria-hidden="true"></i>                
                         </div>
-                        <h3>Work experience</h3>
+                        <h3>{{ content.experience[0] }}</h3>
                         <ul class="el__exp">
                             <li>
-                                <h4><a href="/selflab">Selflab cms</a></h4>
+                                <h4><a href="/selflab">{{ content.experience[1] }}</a></h4>
                                 <p>
-                                    Develop CMS system based on node.js (backend) + react.js (frontend) for studio
+                                    {{ content.experience[2] }}
                                     <br>
-                                    <a href="https://github.com/TheGorazio/selflab-cms-frontend">Frontend repository</a>                                    
-                                    <a href="https://github.com/TheGorazio/selflab-cms-backend">Backend repository</a>
+                                    <a href="https://github.com/TheGorazio/selflab-cms-frontend">Frontend {{ content.repository }}</a>                                    
+                                    <a href="https://github.com/TheGorazio/selflab-cms-backend">Backend {{ content.repository }}</a>
                                 </p>
                                 </li>
                             <li>
-                                <h4><a href="/nivirlab">Graduate work</a></h4>
+                                <h4><a href="/nivirlab">{{ content.experience[3] }}</a></h4>
                                 <p>
-                                    My graduate work is creating studing virtual lab based on Internet of Things conception. Real devices in the university connected to the cloud IoT service, and sends data to it. My backend receive that data, analyze it and send to client, who works with certain task.
+                                    {{ content.experience[4] }}
                                     <br>
-                                    <a href="https://github.com/TheGorazio/nivirlab">Frontend repository</a>
-                                    <a href="https://github.com/TheGorazio/virlab-backend">Backend repository</a>                                    
+                                    <a href="https://github.com/TheGorazio/nivirlab">Frontend {{ content.repository }}</a>
+                                    <a href="https://github.com/TheGorazio/virlab-backend">Backend {{ content.repository }}</a>                                    
                                 </p>
                             </li>
                             <li>
-                                <h4><a href="/venzer">Developed template</a></h4>
+                                <h4><a href="/venzer">{{ content.experience[5] }}</a></h4>
                                 <p>
-                                    Some template from the internet developed by my from PSD.
+                                    {{ content.experience[6] }}
                                     <br>
-                                    <a href="https://github.com/TheGorazio/venzer">Repository</a>                                    
+                                    <a href="https://github.com/TheGorazio/venzer">{{ content.repository | capitalize }}</a>                                    
                                 </p>
                             </li>
                         </ul>
@@ -231,26 +242,26 @@
                         <div class="el__icon">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>                
                         </div>
-                        <h3>Education</h3>
+                        <h3>{{ content.education[0] }}</h3>
                         <ul class="el__education">
                             <li>
-                                School
+                                {{ content.education[1] }}
                                 <p>
-                                    Middle School #36, Vladimir, 2002 - 2013
+                                    {{ content.education[2] }}
                                     <br>
-                                    <small>Student</small>
+                                    <small>{{ content.education[3] }}</small>
                                 </p>
                             </li>
                             <li>
-                                University
+                                {{ content.education[4] }}
                                 <p>
-                                    MIEM HSE, Moscow, 2013 - 2017
+                                    {{ content.education[5] }}
                                     <br>
-                                    <small>Computer engineering department bachelor</small>
+                                    <small>{{ content.education[6] }}</small>
                                 </p>
                             </li>
                             <li>
-                                Courses:
+                                {{ content.education[7] }}
                                 <ul class="courses">
                                     <li>
                                         <p>
@@ -266,6 +277,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
         <script src="dist/bundle.js"></script>
     </body>
 </html>

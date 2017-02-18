@@ -135,6 +135,25 @@ header
                     color: $font-light
 
                     margin: 10px
+    .lang-select
+        position: fixed
+        top: 16%
+        left: 0
+        @include for-desktop
+            left: 10px        
+        div
+            cursor: pointer
+            width: 40px
+            @include for-desktop
+                width: 80px
+                img
+                    width: 80px
+            &.selected
+                img
+                    border: 1px solid gold            
+                    border-radius: 50%                
+            img
+                width: 42px
     .header_avatar
         width: 120px
         height: 120px
@@ -152,7 +171,6 @@ header
         overflow: hidden
         &.hide
             z-index: 0
-
         img
             height: 150px
             width: 120px
@@ -161,8 +179,6 @@ header
         text-align: center
 
         transform: translateY(-40px)
-
-        margin-bottom: 30px
 .main
     width: 80%
     margin: 0 auto
