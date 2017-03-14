@@ -44,7 +44,11 @@ export const English = {
         'Graduate work',
         'My graduate work is creating studing virtual lab based on Internet of Things conception. Real devices in the university connected to the cloud IoT service, and sends data to it. My backend receive that data, analyze it and send to client, who works with certain task.',
         'Developed template',
-        'Some template from the internet developed by my from PSD.'
+        'Some template from the internet developed by my from PSD.',
+        'Drumkit',
+        'Drumkit powered by js',
+        'Clock',
+        'Minimalistic js clock'
     ],
     education: [
         'Education',
