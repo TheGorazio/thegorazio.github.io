@@ -48,7 +48,9 @@ export const English = {
         'Drumkit',
         'Drumkit powered by js',
         'Clock',
-        'Minimalistic js clock'
+        'Minimalistic js clock',
+        'SmartUrn project for Microsoft Imagine Cup',
+        'The project based on IoT concept via Microsoft Azure cloud. Ref to login gleb/gleb'
     ],
     education: [
         'Education',
